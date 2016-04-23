@@ -21,8 +21,9 @@ module.exports = new Extension({
         'start_command': function(custom_opts) {
             var command = 'omxplayer',
                 default_opts = {
-                    '--loop': true,   // loop the video
-                    '-b': true        // fill the background black
+                    '--loop': true,             // loop the video
+                    '--aspect-mode': 'fill',    // cover the entire screen (other options: 'fit', 'stretch');
+                    '-b': true                  // if --aspect-mode is set to 'fit', fill the background black
                 },
                 opts,
                 key;

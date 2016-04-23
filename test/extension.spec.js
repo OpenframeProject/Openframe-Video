@@ -38,7 +38,7 @@ describe('properties', function() {
                 '--aspect-mode': 'fit'
             },
             command = format.start_command(config),
-            expected = 'omxplayer --loop -b --aspect-mode fit $filepath';
+            expected = 'omxplayer --loop --aspect-mode fit -b $filepath';
 
         assert(typeof command === 'string');
         assert.equal(command, expected);
@@ -50,7 +50,7 @@ describe('properties', function() {
                 '--loop': false
             },
             command = format.start_command(config),
-            expected = 'omxplayer -b $filepath';
+            expected = 'omxplayer --aspect-mode fill -b $filepath';
 
         assert(typeof command === 'string');
         assert.equal(command, expected);
