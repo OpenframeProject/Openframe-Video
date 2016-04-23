@@ -1,7 +1,7 @@
 {
   "name": "openframe-video",
   "version": "0.1.0",
-  "description": "Openframe plugin which adds support for videos via omxplayer",
+  "description": "Openframe extension which adds support for videos via omxplayer",
   "main": "extension.js",
   "scripts": {
     "install": "./install.sh",
