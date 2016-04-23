@@ -18,7 +18,35 @@ module.exports = new Extension({
         // does this type of artwork need to be downloaded to the frame?
         'download': true,
         // how do start this type of artwork? currently two token replacements, $filepath and $url
-        'start_command': 'omxplayer --loop -b $filepath',
+        'start_command': function(custom_opts) {
+            var command = 'omxplayer',
+                default_opts = {
+                    '--loop': true,   // loop the video
+                    '-b': true        // fill the background black
+                },
+                opts,
+                key;
+
+            if (custom_opts && typeof custom_opts === 'object') {
+                opts = Object.assign(default_opts, custom_opts);
+            } else {
+                opts = default_opts;
+            }
+
+            for (key in opts) {
+                if (typeof opts[key] === 'boolean') {
+                    // if the value is boolean, include it as a flag if it's true
+                    command += opts[key] ? ' ' + key : '';
+                } else {
+                    // for all other arguments, assume strings and pass as arguments with values
+                    command += ' ' + [key, opts[key].toString()].join(' ');
+                }
+            }
+
+            command += ' $filepath';
+
+            return command;
+        },
         // how do we stop this type of artwork?
         'end_command': 'sudo pkill -f omxplayer'
     }

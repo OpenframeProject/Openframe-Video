@@ -31,4 +31,29 @@ describe('properties', function() {
         assert(format.end_command);
         assert(typeof format.end_command === 'string');
     });
+
+    it('should pass arguments to start_command', function() {
+        var format = VideoExtension.props.format,
+            config = {
+                '--aspect-mode': 'fit'
+            },
+            command = format.start_command(config),
+            expected = 'omxplayer --loop -b --aspect-mode fit $filepath';
+
+        assert(typeof command === 'string');
+        assert.equal(command, expected);
+    });
+
+    it('should override default arguments in start_command', function() {
+        var format = VideoExtension.props.format,
+            config = {
+                '--loop': false
+            },
+            command = format.start_command(config),
+            expected = 'omxplayer -b $filepath';
+
+        assert(typeof command === 'string');
+        assert.equal(command, expected);
+    });
+
 });
