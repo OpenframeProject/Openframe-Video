@@ -18,18 +18,27 @@ if [ $os == "Linux" ]; then
     # on Debian Linux distributions
 
     # same for any debian disto (untested), including rpi (tested)
-    sudo apt-get install -y omxplayer youtube-dl
+    sudo apt-get install -y omxplayer
 
     if [ $arq == "armv7l" ]; then
-        # on RaspberryPi
+        # on RaspberryPi 2 or higher
+        echo "armv7l"
 
         # ####
         #
         # FOR NOW, CODE GOES HERE since we're shooting for RPi support
         #
         # ####
-        echo "armv7l"
 
+    elif [ $arq == "armv6l" ]; then
+        # on RaspberryPi 1 (A+, B+)
+        echo "armv6l"
+
+        # ####
+        #
+        # FOR NOW, CODE GOES HERE since we're shooting for RPi support
+        #
+        # ####
 
     else
         # Non-arm7 Debian...
