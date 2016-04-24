@@ -4,6 +4,11 @@
 
 echo "Openframe Video -- install.sh"
 
+if ! [ -z "$TRAVIS" ]; then
+    echo "TRAVIS env, don't install"
+    exit 0
+fi
+
 # Some limited platform detection might be in order... though at present we're targeting the Pi
 os=$(uname)
 arq=$(uname -m)
