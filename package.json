@@ -1,6 +1,6 @@
 {
   "name": "openframe-video",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Openframe extension which adds support for videos via omxplayer",
   "main": "extension.js",
   "scripts": {
