@@ -23,7 +23,8 @@ module.exports = new Extension({
                 default_opts = {
                     '--loop': true,             // loop the video
                     '--aspect-mode': 'fill',    // cover the entire screen (other options: 'fit', 'stretch');
-                    '-b': true                  // if --aspect-mode is set to 'fit', fill the background black
+                    '-b': true,                 // if --aspect-mode is set to 'fit', fill the background black
+                    '--no-osd': true            // hide status info overlay
                 },
                 opts,
                 key;
