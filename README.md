@@ -27,7 +27,7 @@ Artworks can pass arguments to omxplayer using the Artwork object's `config` pro
     "ownerId": "56c4802c30eda27c7a0de423",
     "created": "2016-04-23T15:16:08.870Z",
     "modified": "2016-04-23T15:16:08.870Z",
-    "config": {
+    "options": {
         // available options for --aspect-mode are:
         // fill: (default) cover entire screen, cropping video
         // fit: contain entire video within the screen, no cropping but black boxes
